@@ -54,42 +54,33 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
     }
     return (
       <>
-        <li key={signature + "signature"}>
-          <label>Tx:</label> &nbsp;
-          {signature}
-        </li>
-        <li key={signature + "fee"}>
-          <label>Fee:</label>&nbsp;
-          {meta?.fee}
-        </li>
-
-        
-        <li key={signature + "amount"}>
-          <label>Sent Amount(Stream + Performance):</label>&nbsp;
-          {amount}
-        </li>
-        <li key={signature + "sum"}>
-          <label>Sum (in Sol):</label>&nbsp;
-          {sum}
-        </li>
-
-        <li key={signature + "sender"}>
-          <label>Sender:</label>&nbsp;
-          {trans.instructions[0].keys[0].pubkey.toBase58()}
-        </li>
-        <li key={signature + "sender-balance"}>
-          <label>Sender Balance:</label>&nbsp;
-          {meta?.postBalances[0]}
-        </li>
-        <li key={signature + "receiver"}>
-          <label>Receiver:</label>&nbsp;
-          {trans.instructions[0].keys[1].pubkey.toBase58()}
-        </li>
-        <li key={signature + "receiver-balance"}>
-          <label>Receiver Balance:</label>&nbsp;
-          {meta?.postBalances[1]}
-        </li>
-      </>
+      <div className="tx-main">
+          <div className="to-amt">
+            <div className="to">
+              <li key={signature + "receiver"}>
+                <label>To:</label>&nbsp;
+                {trans.instructions[0].keys[1].pubkey.toBase58()}
+              </li>
+            </div>
+            <div className="amt">
+              <li key={signature + "amount"}>
+                <label>Amount per interval:</label>&nbsp;
+                {amount}
+              </li>
+            </div>
+          </div>
+          <div className="streamed">
+            <li key={signature + "sum"}>
+              <label>Streamed:</label>&nbsp;
+              {sum}
+            </li>
+          </div>
+          <div>
+          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
+        <div className="w3-light-grey">
+          <div id="myBar" className="w3-container w3-green w3-center" /> </div>
+          </div>
+        </div></>
     );
   };
 

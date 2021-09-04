@@ -1,10 +1,30 @@
 .trans-item {
-  border: 1px solid gray;
-  border-radius: 0.4rem;
-  padding: 0.5rem;
-  margin-bottom: 0.5em;
+  width:100% ;
+  margin-bottom: 20px;
+  border: 1px solid #dfdfdf;
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 40px;
+
 }
 
 .trans-meta {
   list-style-type: none;
+}
+.tx-main{
+
+}
+
+.to{
+  float: left;
+  font-size: 10px;
+}
+.amt{
+float: left;
+font-size: 10px;
+}
+.streamed{
+  width: 100%;
+  float: right;
+  font-size: 10px;
 }
