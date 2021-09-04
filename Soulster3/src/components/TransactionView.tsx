@@ -3,30 +3,42 @@ import { TransactionWithSignature } from "../helpers/transactions";
 import "./TransactionView.css";
 import {arr, receiverUpdatedBalance} from "../helpers/wallet";
 
+
 interface TransactionsViewProps {
   transactions?: Array<TransactionWithSignature>;
+  
+  
+  
 }
 
-const TransactionsView: FC<TransactionsViewProps> = ({ transactions }) => {
-  const getTransactions = () => {
-    return transactions?.map((trans) => {
-      return <TransactionItemView key={trans.signature} transaction={trans} />;
-    });
-  };
+const TransactionsView: FC<TransactionsViewProps>= ({ transactions }) => {
+      const getTransactions = () => {
+        if (typeof transactions === 'object') {
+          
+          return  <TransactionItemView key={transactions.slice(-1)[0].signature} transaction={transactions.slice(-1)[0]}  />;
+        }
+        
+        
+        // transactions?[transactions?.length-1].key={} transaction={}
+      };
 
   return <div>{getTransactions()}</div>;
 };
 
+
+
 interface TransactionItemViewProps {
   transaction: TransactionWithSignature;
+
 }
 
-const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction }) => { 
+const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => { 
   
   const getTransactionItems = () => {
     const signature = transaction.signature?.toString();
     const meta = transaction.confirmedTransaction.meta;
     const trans = transaction.confirmedTransaction.transaction;
+    
     let amount = 0;
     let sum;
 

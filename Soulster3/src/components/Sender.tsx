@@ -10,6 +10,8 @@ const Sender: React.FC<SenderProps> = ({ didSendMoney }) => {
   const [amount, setAmount] = useState(0);
   const [address, setAddress] = useState("0");
   const [timeA, setTime] = useState(0);
+  const [timeHr, setTimeHr] = useState(0);
+  const [timeDay, setTimeDay] = useState(0);
 
   const [intervals, setIntervals] = useState(0);
 
@@ -26,7 +28,7 @@ const Sender: React.FC<SenderProps> = ({ didSendMoney }) => {
   var timeInMil: number;
   timeforstop=0;
 
-  timeInMil = timeA * 60000; //converting days into miliseconds
+  timeInMil = (timeA * 60000)+(timeHr * 3600000)+(timeDay * 86400000); //converting days into miliseconds
   intervalsInMilSec = timeInMil/intervals;
 
   //var amountperInterval = amount1/intervals;
@@ -39,11 +41,24 @@ const Sender: React.FC<SenderProps> = ({ didSendMoney }) => {
   const onChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value ? Number(e.target.value) : 0);
   };
-
+//3time fields
   const onChangeTimeA = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTime(e.target.value ? Number(e.target.value) : 0);
   };
+  const onChangeTimeHr = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTimeHr(e.target.value ? Number(e.target.value) : 0);
+  };
+  const onChangeTimeDay = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTimeDay(e.target.value ? Number(e.target.value) : 0);
+  };
 
+
+  
+  
+  
+  
+  
+  //>>>>>.
   const onChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAddress(e.target.value ? e.target.value.toString() : "");
   };
@@ -73,7 +88,7 @@ const onClickSendMoney = async (
 ) => {
   e.preventDefault();
   console.log("this is running");
-
+//hello
   
     
   var varCounter = 0;
@@ -125,12 +140,12 @@ return (
       <form className="wrapper">
       <label>Amount (in Sol): </label>
       <div className="form-row"><input type="text" onChange={onChangeAmount} value={amount} placeholder="Amount" className="form-control" ></input></div>
-      <label>Address: </label>  
+      <label>ToAddress: </label>  
       <div className="form-row"><input type="text" onChange={onChangeAddress} value={address} className="form-control"></input></div>
 
-      <label>Time:</label>
-      <div><input type="text" className="time-form" placeholder="days"></input></div>
-      <div><input type="text" className="time-form" placeholder="hr"></input></div>
+      <label>Time: (Days-Hrs-Mins)</label>
+      <div><input type="text" onChange={onChangeTimeDay} value={timeDay} className="time-form" placeholder="days"></input></div>
+      <div><input type="text" onChange={onChangeTimeHr} value={timeHr} className="time-form" placeholder="hr"></input></div>
       <div><input type="text" onChange={onChangeTimeA} value={timeA} className="time-form" placeholder="min"></input></div>
       <label>Interval: </label><label className="label">{intervals}</label>
       <div className="form-row"><input type="range" min="1" max="100" onChange={onChangeIntervals} value={intervals} className="slider"></input></div>
