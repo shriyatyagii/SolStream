@@ -12,18 +12,19 @@ interface TransactionsViewProps {
 }
 
 const TransactionsView: FC<TransactionsViewProps>= ({ transactions }) => {
-      const getTransactions = () => {
-        if (typeof transactions === 'object') {
-          
-          return  <TransactionItemView key={transactions.slice(-1)[0].signature} transaction={transactions.slice(-1)[0]}  />;
-        }
-        
-        
-        // transactions?[transactions?.length-1].key={} transaction={}
-      };
+  const getTransactions = () => {
+    if (typeof transactions === 'object') {
+      var transactions1 = transactions.reverse();
+      
+      return  <TransactionItemView key={transactions1[0].signature} transaction={transactions1[0]}  />;
+      
+    }
 
-  return <div>{getTransactions()}</div>;
+  };
+
+return <div>{getTransactions()}</div>;
 };
+
 
 
 
