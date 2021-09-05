@@ -3,12 +3,8 @@ import { TransactionWithSignature } from "../helpers/transactions";
 import "./TransactionView.css";
 import {arr, receiverUpdatedBalance} from "../helpers/wallet";
 
-
 interface TransactionsViewProps {
   transactions?: Array<TransactionWithSignature>;
-  
-  
-  
 }
 
 const TransactionsView: FC<TransactionsViewProps>= ({ transactions }) => {
@@ -20,17 +16,9 @@ const TransactionsView: FC<TransactionsViewProps>= ({ transactions }) => {
       
     }
 
-  };
-
-return <div>{getTransactions()}</div>;
 };
-
-
-
-
 interface TransactionItemViewProps {
   transaction: TransactionWithSignature;
-
 }
 
 const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => { 
@@ -91,5 +79,4 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
     </div>
   );
 };
-
 export default TransactionsView;
