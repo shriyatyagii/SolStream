@@ -7,14 +7,18 @@ interface TransactionsViewProps {
   transactions?: Array<TransactionWithSignature>;
 }
 
-const TransactionsView: FC<TransactionsViewProps> = ({ transactions }) => {
+const TransactionsView: FC<TransactionsViewProps>= ({ transactions }) => {
   const getTransactions = () => {
-    return transactions?.map((trans) => {
-      return <TransactionItemView key={trans.signature} transaction={trans} />;
-    });
+    if (typeof transactions === 'object') {
+      var transactions1 = transactions.reverse();
+      
+      return  <TransactionItemView key={transactions1[0].signature} transaction={transactions1[0]}  />;
+      
+    }
+
   };
 
-  return <div>{getTransactions()}</div>;
+return <div>{getTransactions()}</div>;
 };
 
 interface TransactionItemViewProps {
