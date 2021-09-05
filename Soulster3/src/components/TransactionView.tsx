@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import { TransactionWithSignature } from "../helpers/transactions";
 import "./TransactionView.css";
 import {arr, receiverUpdatedBalance} from "../helpers/wallet";
+import {amountToExport} from "./Sender";
+
 
 interface TransactionsViewProps {
   transactions?: Array<TransactionWithSignature>;
@@ -70,11 +72,11 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction }) => {
             </div>
             </div>
           <div className="loading-bar">
-          <meter className="meter" value={sum} min="0" max="100"></meter>
+          <meter className="meter" value={sum} min="0" max={amountToExport/1000000000}></meter>
           </div>
           <div>
           <label className="initial" >0</label>
-          <label className="total">Total</label>
+          <label className="total">{amountToExport/1000000000} Sol</label>
           </div>
           </div>
           </>

@@ -6,6 +6,8 @@ interface SenderProps {
   didSendMoney: () => void;
 }
 
+export var amountToExport:number;
+
 const Sender: React.FC<SenderProps> = ({ didSendMoney }) => {
   const [amount, setAmount] = useState(0);
   const [address, setAddress] = useState("0");
@@ -18,6 +20,7 @@ const Sender: React.FC<SenderProps> = ({ didSendMoney }) => {
 
   const [performance, setPerformace] = useState(0);
   var amount1 = amount*1000000000;
+  amountToExport=amount1;
   const amountStream = amount1 * 0.8; //800
   const amountPerformance = amount1 * 0.2; //200
   const performanceIntervalAmountTransfer = performance * (amountPerformance*0.1);
@@ -139,7 +142,7 @@ return (
       <div><input type="text" onChange={onChangeTimeHr} value={timeHr} className="time-form" placeholder="hr"></input></div>
           <div><input type="text" onChange={onChangeTimeA} value={timeA} className="time-form" placeholder="min"></input></div>
           <label>Interval: </label><label className="label">{intervals}</label>
-          <div className="form-row"><input type="range" min="1" max="100" onChange={onChangeIntervals} value={intervals} className="slider"></input></div>
+          <div className="form-row"><input type="range" min="1" max="10" onChange={onChangeIntervals} value={intervals} className="slider"></input></div>
           <label></label>
           <div><button onClick={onClickSendMoney} className="button"><span>Create Stream</span></button></div>
         </form> </div></div></div></>
