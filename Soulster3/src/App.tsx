@@ -42,7 +42,7 @@ function App() {
       <div className="app-body-mid">
         <TransactionsView transactions={transactions} />
       </div>
-      <div className="app-body-mid">
+      <div className="app-body-bottom">
         <ReceiverTransactionsView transactions={transactions} />
       </div>
     </div>

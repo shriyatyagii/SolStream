@@ -80,7 +80,7 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
             </div>
             </div>
           <div className="loading-bar">
-          <meter className="meter" value="50" min="0" max="100"></meter>
+          <meter className="meter" value={sum} min="0" max="100"></meter>
           </div>
           <div>
           <label className="initial" >0</label>
