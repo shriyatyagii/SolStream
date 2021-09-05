@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { TransactionWithSignature } from "../helpers/transactions";
 import "./TransactionView.css";
-import {arr, receiverUpdatedBalance} from "../helpers/wallet";
-import { amountToExport } from "./Sender";
+
+
 
 
 interface TransactionsViewProps {
@@ -41,54 +41,43 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
     const meta = transaction.confirmedTransaction.meta;
     const trans = transaction.confirmedTransaction.transaction;
     
-    let amount = 0;
-    let sum;
-
-
+    
+    
+    let balance1 = 0;
     if (meta) {
-      amount = meta.preBalances[0] - meta.postBalances[0];
-      sum = (receiverUpdatedBalance - arr[0] )/1000000000;
+      //amount = meta.preBalances[0] - meta.postBalances[0];
+      //sum = (receiverUpdatedBalance - arr[0] )/1000000000;
      
-      amount = amount/1000000000;
-      
+      //amount = amount/1000000000;
+      balance1 = meta?.postBalances[1]/1000000000;
 
 
     }
     return (
       <>
-      <div className="tx-main">
-        <div className="to-streamed">
-            <div className="to">
+      <div className="rc-main">
+        <div className="my-streamed">
+            <div className="my">
               <li key={signature + "sender"}>
-                <label>From:</label>&nbsp;
-               <span className="span"> {trans.instructions[0].keys[0].pubkey.toBase58()}</span>
+                <label>MyAccount:</label>&nbsp;
+               <span className="span1"> {trans.instructions[0].keys[1].pubkey.toBase58()}</span>
               </li>
             </div>
-            <div className="streamed">
-            <li key={signature + "amount"}>
-              <label>APM:</label>&nbsp;
-              <span className="span">{amount}</span>
-            </li>
-            </div>
-            </div>
-            <div className="amt-main">
-              <div className="amt-sub"></div>
-            <div className="amt-per-interval">
-              <li key={signature + "sum"}>
-                <label>Streamed:</label>&nbsp;
-                <span className="span"> {sum}  </span>
-              </li>
-            </div>
-            </div>
-          <div className="loading-bar">
-          <meter className="meter" value={sum} min="0" max={amountToExport}></meter>
-          </div>
-          <div>
-          <label className="initial" >0</label>
-          <label className="total">{amountToExport/1000000000} Sol</label>
-          </div>
-          </div>
-          </>
+                <div className="streamed1">
+                  <li key={signature + "amount"}>
+                    <label>Balance:</label>&nbsp;
+                  <span className="span1">{balance1}</span>
+                </li>
+                </div>
+                
+        </div>
+                
+                <div className="bigempty"> 
+                  <div className="empty1"></div>
+                  <div className="empty2"></div>
+                </div>
+      </div>
+      </>
     );
   };
 

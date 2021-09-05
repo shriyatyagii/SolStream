@@ -71,3 +71,48 @@ meter::-webkit-meter-optimum-value{
 .initial{
   margin-left:50px;
 }
+.rc-main{
+  width: 100%;
+  height: 70px;
+
+}
+.my-streamed{
+  width: 100%;
+  
+}
+.my{
+  margin-left:15px;
+  margin-top:15px;
+  float: left;
+  width:50%;
+}
+
+.streamed1{
+  font-weight: 400 ;
+  float: right;
+  width:40%;
+  text-align: right;
+  margin-right:15px;
+  margin-top:15px;
+}
+.span1{
+  letter-spacing: 0.7px;
+  color: rgb(83, 83, 83);
+}
+.empty1{
+  font-weight: 400 ;
+  float: right;
+  width:40%;
+  text-align: right;
+  margin-right:15px;
+  margin-top:15px;
+}
+.empty2{
+  margin-left:15px;
+  margin-top:15px;
+  float: left;
+  width:50%;
+}
+.bigempty{
+  width: 100%;
+}
