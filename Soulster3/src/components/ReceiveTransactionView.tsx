@@ -49,7 +49,7 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
       //sum = (receiverUpdatedBalance - arr[0] )/1000000000;
      
       //amount = amount/1000000000;
-      balance1 = meta?.postBalances[1]/1000000000;
+      balance1 = meta?.postBalances[0]/1000000000;
 
 
     }
