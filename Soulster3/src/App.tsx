@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Sender from "./components/Sender";
 import TransactionsView from "./components/TransactionView";
+import ReceiverTransactionsView from "./components/ReceiveTransactionView";
 import {
   getTransactions,
   TransactionWithSignature,
@@ -40,6 +41,9 @@ function App() {
       </div>
       <div className="app-body-mid">
         <TransactionsView transactions={transactions} />
+      </div>
+      <div className="app-body-mid">
+        <ReceiverTransactionsView transactions={transactions} />
       </div>
     </div>
   );

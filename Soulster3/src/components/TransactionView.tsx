@@ -16,12 +16,14 @@ const TransactionsView: FC<TransactionsViewProps>= ({ transactions }) => {
       
     }
 
+  };
+  return <div>{getTransactions()}</div>;
 };
+
 interface TransactionItemViewProps {
   transaction: TransactionWithSignature;
 }
-
-const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => { 
+const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction }) => { 
   
   const getTransactionItems = () => {
     const signature = transaction.signature?.toString();
@@ -36,7 +38,7 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
       amount = meta.preBalances[0] - meta.postBalances[0];
       sum = (receiverUpdatedBalance - arr[0] )/1000000000;
      
-      //amount = amount/1000000000;
+      amount = amount/1000000000;
       
 
 
@@ -44,32 +46,38 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
     return (
       <>
       <div className="tx-main">
-          <div className="to-amt">
+        <div className="to-streamed">
             <div className="to">
               <li key={signature + "receiver"}>
                 <label>To:</label>&nbsp;
-                {trans.instructions[0].keys[1].pubkey.toBase58()}
+               <span className="span"> {trans.instructions[0].keys[1].pubkey.toBase58()}</span>
               </li>
             </div>
-            <div className="amt">
-              <li key={signature + "amount"}>
-                <label>Amount per interval:</label>&nbsp;
-                {amount}
-              </li>
-            </div>
-          </div>
-          <div className="streamed">
+            <div className="streamed">
             <li key={signature + "sum"}>
               <label>Streamed:</label>&nbsp;
-              {sum}
+              <span className="span">{sum}</span>
             </li>
+            </div>
+            </div>
+            <div className="amt-main">
+              <div className="amt-sub"></div>
+            <div className="amt-per-interval">
+              <li key={signature + "amount"}>
+                <label>Amount per interval:</label>&nbsp;
+                <span className="span"> {amount}  </span>
+              </li>
+            </div>
+            </div>
+          <div className="loading-bar">
+          <meter className="meter" value="50" min="0" max="100"></meter>
           </div>
           <div>
-          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"></link>
-        <div className="w3-light-grey">
-          <div id="myBar" className="w3-container w3-green w3-center" /> </div>
+          <label className="initial" >0</label>
+          <label className="total">Total</label>
           </div>
-        </div></>
+          </div>
+          </>
     );
   };
 

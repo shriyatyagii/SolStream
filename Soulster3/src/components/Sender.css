@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 .form-row {
   margin-bottom: 24px
 }
@@ -14,22 +15,26 @@
 }
 
 body{
-
   background-color:#fafafa;
-
+  font-family: 'Raleway', sans-serif !important;
 }
+
 h2{
-  font-size: 25px;
-  font-weight: 700;
   margin-top: 150px;
+  font-size: 32px;
+  font-weight: 800;
   text-align: center;
+  letter-spacing: 1.5px;
+  font-style: bold !important;
 }
 
 p{
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 200;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: #a5a5a5;
 }
 
 .wrapper{
@@ -94,8 +99,8 @@ textarea.form-control {
 
 .button {
   border-radius: 100rem;
+  font-family: 'Raleway',sans-serif !important;
   padding: 1rem;
-  font-family: 'Avenir Next';
   font-size: 1rem;
   padding: .5rem 3rem;
   color: black;
@@ -223,7 +228,6 @@ button.button:hover {
   margin-right: 13px;
   border: 1px solid #dfdfdf;
   background-color: #ffffff;
-
   padding-top: 30px;
   text-align: center;
   border-radius: 5%;
@@ -236,22 +240,19 @@ button.button:hover {
   float:left !important;
   border: 1px solid #dfdfdf;
   background-color: #ffffff;
-
   border-radius: 5%;
 
 }
 .pr{
   margin-left:15px;
   margin-right: 15px;
-  padding-bottom:30px ;
-
   align-items: center;
 }
 
 .button-pr{
   border-radius: 100rem;
+  font-family: 'Raleway',sans-serif !important;
   padding: 1rem;
-  font-family: 'Avenir Next';
   font-size: 1rem;
   padding: .5rem 3rem;
   color: black;
@@ -261,7 +262,6 @@ button.button:hover {
   background-origin: border-box;
   background-clip: content-box, border-box;
   box-shadow: 2px 1000px 1px #fff inset;
-  margin-top:100px;
 
 }
 button.button-pr:hover {
@@ -291,7 +291,7 @@ button.button-pr:hover {
 }
 
 .pr-func{
-  margin-top: 20px;
+  margin-top: 100px;
 }
 .time-form{
   width:30%;
