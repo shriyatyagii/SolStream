@@ -49,7 +49,7 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
       //sum = (receiverUpdatedBalance - arr[0] )/1000000000;
      
       //amount = amount/1000000000;
-      balance1 = meta?.postBalances[1]/1000000000;
+      balance1 = meta?.postBalances[0]/1000000000;
 
 
     }
@@ -60,7 +60,7 @@ const TransactionItemView: FC<TransactionItemViewProps> = ({ transaction  }) => 
             <div className="my">
               <li key={signature + "sender"}>
                 <label>MyAccount:</label>&nbsp;
-               <span className="span1"> {trans.instructions[0].keys[1].pubkey.toBase58()}</span>
+               <span className="span1"> {trans.instructions[0].keys[0].pubkey.toBase58()}</span>
               </li>
             </div>
                 <div className="streamed1">
